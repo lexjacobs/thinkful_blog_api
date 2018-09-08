@@ -8,10 +8,44 @@ app.use(morgan('tiny'));
 app.use('/blog-posts', blogPostRouter)
 
 app.all('*', function(request, response) {
-  response.send('fell through');
+  response.send('<html><head></head><body>hello, world!</body></html>');
 });
 
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-  console.log(`app is listening on ${PORT}`);
-});
+let server;
+
+function runServer() {
+  const port = process.env.PORT || 8080;
+  return new Promise(function(resolve, reject) {
+    server = app
+      .listen(port, function() {
+        console.log(`Your app is listening on port ${port}`);
+        resolve(server);
+      })
+      .on('error', function(error) {
+        reject(error);
+      })
+  });
+}
+
+function closeServer() {
+  return new Promise(function(resolve, reject) {
+    console.log('Closing server');
+    server.close(function(error) {
+      if (error) {
+        reject(error);
+        return;
+      }
+      resolve();
+    });
+  });
+}
+
+if (require.main === module) {
+  runServer().catch(function(error) {
+    console.error(error);
+  });
+}
+
+module.exports =  {
+  app, runServer, closeServer
+}
