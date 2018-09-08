@@ -1,0 +1,9 @@
+language: node_js
+node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: aYDUWag/Z40kEC+mUPqpBPax1afWLBf5UyB5yiDYdl4JwNlMfBhAV6+aYFkNJny1g8hQ9GakZP6BAh1nQw586Zpwfgd0kb464i3g8aYdFPvFCv2no1udb0Rbm9mDgSzOnbij3JqznUnriptHIEOcUYKK8P+VGvfUHVwUXLwHmZpeERXH+u8khKkjMpmMQiZvtRSXPikNCNoXOH7+7gKAN687bcJZh1jrYZmfP+XcH0EJmTypOrQbObpdjRqoEz2my2lgztib4aUgnJYKT34g99YQM/YJqjDo+klODsz8nibS/s71R87EKpWE9DCDwW2ZQD5QCusGNiFFGIeWUiSp2wwrC8pC5scq096JEhOLvAfEvs+sw5+9YNpr//l+8OZ2TKhv60OUQZaaVVuBl2VHC2suaJYAAJmTZizrGiUGr7xYK5DGAFNOVo938r5+eb4l6UFf0Z3tyRW//oyawYKqYSLLfL+lPhdzv2LKqzlHKbis7amXQvc/tnKwCooEWiCt9wnelYQ5fXcXKqKAH6VpsVLlDJ/YbXSzyH/SwjRM/DyTlVwGmKf+hVw2xP+EgBv2QCaNMUXQEdooyANJ4pRFRgxzcgrj6CJnW4NWjU5OgAcTa9xGryMWKWDupQU0zzCDL5uWPsOtlHyUvj6Q3zSQSedDAj8uNLXlRKBj6nAVoKU=
+  app: thinkful-blog-api
+  on:
+    repo: lexjacobs/thinkful_blog_api
